@@ -21,4 +21,43 @@ It checks for suspicious processes, failed login attempts, CPU load, open networ
 Run the script with sudo for proper permissions:
 
 ```bash
-sudo bash Detect.sh
+sudo bash Detect.sh ```
+
+```
+Dependencies / Requirements
+
+Your script uses these standard Linux commands:
+
+   grep
+
+   awk
+
+  last (for login and shutdown info)
+
+  netstat or ss (to list open network ports)
+
+  bc (for floating point CPU load comparison)
+
+  ps (for process checks)
+
+  uptime (to get CPU load) 
+
+  What if some commands are missing?
+
+   On Debian/Ubuntu systems:
+
+     sudo apt install net-tools procps bc
+
+  On Fedora/CentOS/RHEL:
+
+    sudo dnf install net-tools procps-ng bc
+
+
+Notes:
+
+ Some commands like last may not be installed by default on minimal systems.
+
+ netstat is part of the net-tools package; some distros prefer ss from iproute2.
+
+ Your script currently falls back if some commands are missing, but installing these ensures full functionality.
+```
